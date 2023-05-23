@@ -4,8 +4,12 @@
   --clr-skyBlue: rgb(0, 179, 219);
   --clr-dark: #000000;
   --clr-lightNavy: #112240;
-  --clr-armyGreen: #020c1b;
+  --clr-armyGreen: #202124;
+  /* #020c1b; */
   --clr-green: #64ffda;
+  --clr-golden: #d1b000;
+  --clr-lightDark: #202124;
+  /* #FFD700; */
   /* #4b5320; */
 }
 

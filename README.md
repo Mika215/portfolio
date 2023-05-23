@@ -1,9 +1,9 @@
-# Mikacodes - Portofolio
+# Mikacodes - Portfolio
 
 ## About the project
 
-This is my very first professional portfolio as a web developer.
-I have tried to demonstarte my skills and the projects that i have realized so far.
+Here is my very first [portfolio](https://mikacodes.netlify.app) as a web developer.
+I have tried to demonstrate my skills and the projects that i have realized so far.
 
 ## Techs
 
@@ -11,7 +11,7 @@ I have tried to demonstarte my skills and the projects that i have realized so f
 Vue3,vite,NodeJS,SCSS
 ```
 
-## Depoloyed on
+## Deployed on
 
 ```
 Netlify

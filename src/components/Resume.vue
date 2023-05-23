@@ -152,7 +152,7 @@ onMounted(() => {
 }
 
 .work-tabs {
-  /* border: 1px solid red; */
+  /* border: 1px solid var(--clr-golden); */
   display: flex;
   background-color: var(--clr-armyGreen);
 }
@@ -174,7 +174,7 @@ onMounted(() => {
   color: var(--clr-green);
   /* background-color: var(--clr-armyGreen); */
   /* opacity: 0.5; */
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid var(--clr-golden);
   padding-bottom: 0.5rem;
   /* width: 100%; */
   transition: 0.5s ease;
@@ -199,7 +199,7 @@ li {
     /* background-color: var(--clr-armyGreen); */
     /* opacity: 0.5; */
     border-bottom: none;
-    border-left: 2px solid red;
+    border-left: 2px solid var(--clr-golden);
     padding-bottom: 0;
     padding-left: 0.5rem;
   }

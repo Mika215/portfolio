@@ -6,6 +6,7 @@ import Header from "./components/Header.vue";
 import LandingPage from "./components/LandingPage.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
+import Footer from "./components/Footer.vue";
 
 import Ecommerce from "./assets/images/e-commerce.jpg";
 import RoomBooking from "./assets/images/room-booking.webp";
@@ -89,6 +90,7 @@ const projects = ref([
     </section>
     <Resume />
   </main>
+  <Footer />
 </template>
 
 <style scoped>
@@ -105,6 +107,7 @@ const projects = ref([
   grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1rem;
+  justify-items: center;
 }
 
 @media (min-width: 421px) and (max-width: 648px) {

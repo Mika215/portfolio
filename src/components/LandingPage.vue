@@ -32,18 +32,8 @@ const downloadFile = () => {
       </div>
       <article class="landing-content">
         <p>Hello, this is</p>
-        <h2 class="heading-lg primary">Michael Tesfay.</h2>
+        <h2 class="heading-lg primary">Michael Tesfay</h2>
         <p class="heading-lg secondary">Passionate web developer</p>
-        <p>
-          I am a junior web developer specializing on MongoDB, Express React
-          NodeJS (the MERN stack). I took a bold decision to make a carrier
-          shift from a media and communications professional background(in which
-          i have worked for about a decade) to acquire a powerful tool - Web
-          Development. I strongly believe that webdev is all about problem
-          solving and i am determined to persist along with other web developers
-          in the adventure of solving real problems which abundantly exist all
-          over my surrounding.
-        </p>
         <p class="spartan">
           I am a junior web developer specializing on MongoDB, Express React
           NodeJS (the MERN stack). I took a bold decision to make a carrier
@@ -100,16 +90,17 @@ const downloadFile = () => {
   text-decoration: none;
 }
 .heading-lg {
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(30px, 6vw, 70px);
+  /* clamp(40px, 8vw, 80px); */
 }
 .primary {
 }
 
 .secondary {
   color: lightgray;
+  font-weight: 800;
   margin: 0;
-  border: 1px solid red;
-  font-size: clamp(20px, 4vw, 40px);
+  font-size: clamp(20px, 4vw, 30px);
 }
 
 .cv-btn {
@@ -122,15 +113,15 @@ const downloadFile = () => {
   padding: 0.5rem;
   border: none;
 }
-  .landing-content p {
-    letter-spacing: 1;
-    line-height: 1.5;
-    text-align: justify;
-  }
-  .landing-content p + p {
-    margin-top: 1rem;
-  }
-  
+.landing-content p {
+  letter-spacing: 1;
+  line-height: 1.5;
+  text-align: justify;
+}
+.landing-content p + p {
+  margin-top: 1rem;
+}
+
 @media (min-width: 421px) {
   .landing-wrapper {
     flex-direction: row;
@@ -143,6 +134,5 @@ const downloadFile = () => {
     padding-top: 2rem;
     padding-right: 2rem;
   }
-
 }
 </style>

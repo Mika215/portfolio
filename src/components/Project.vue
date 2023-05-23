@@ -64,7 +64,7 @@ const props = defineProps({
   flex-direction: column;
   justify-content: space-between;
   min-height: 300px;
-  max-width: 225px;
+  width: 226px;
   padding: 0.75rem;
   border-radius: 4%;
   background-color: var(--clr-armyGreen);
