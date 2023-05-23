@@ -15,22 +15,22 @@ const menuItems = ref([
   {
     label: "About",
     id: "about",
-    href: "#",
+    href: "#about",
   },
   {
     label: "Projects",
     id: "projects",
-    href: "#",
+    href: "#projects",
   },
   {
     label: "Experience",
     id: "experience",
-    href: "#",
+    href: "#experience",
   },
   {
     label: "Contact",
     id: "contact",
-    href: "#",
+    href: "#contact",
   },
 ]);
 </script>
@@ -43,10 +43,10 @@ const menuItems = ref([
       @click="toggleMobMenu"
     >
       <div class="bar bar-two"></div>
-    </div>
+    </div>    
     <ul class="nav-items">
       <li class="nav-item">
-        <a v-for="item in menuItems" :key="item.id" :href="item.id">{{
+        <a v-for="item in menuItems" :key="item.id" :href="item.href">{{
           item.label
         }}</a>
       </li>

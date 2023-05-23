@@ -56,7 +56,8 @@ const props = defineProps({
   /* background-color: gray; */
   border-radius: 5%;
   padding: 2px 5px;
-  color: var(--clr-green);
+  /* color: var(--clr-golden); */
+  color: white;
 }
 
 .project-box {
@@ -68,6 +69,7 @@ const props = defineProps({
   padding: 0.75rem;
   border-radius: 4%;
   background-color: var(--clr-armyGreen);
+  /* background-color: silver; */
   color: white;
   -webkit-box-shadow: -5px 6px 15px -1px rgba(152, 158, 154, 0.97);
   -moz-box-shadow: -5px 6px 15px -1px rgba(152, 158, 154, 0.97);
@@ -91,7 +93,8 @@ const props = defineProps({
 }
 
 .project-description {
-  color: lightgray;
+  color: #dbdbdb;
+  /* color: var(--clr-lightDark); */
 }
 
 .project-image {

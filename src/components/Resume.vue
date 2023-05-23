@@ -113,7 +113,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="resume">
+  <section id="experience">
     <h2 class="resume-title">Where i have worked</h2>
     <div class="resume-content">
       <div class="work-tabs">
@@ -144,11 +144,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
-#resume {
+#experience {
   height: 400px;
   width: auto;
   margin: 1rem;
   padding: 1rem;
+  min-height: 100vh;
 }
 
 .work-tabs {

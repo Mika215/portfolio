@@ -25,13 +25,13 @@ const downloadFile = () => {
 </script>
 
 <template>
-  <section class="landing">
+  <section id="about" class="landing">
     <div class="landing-wrapper">
       <div class="landing-image">
         <img :src="LandingIcon" alt="encryption-svg" />
       </div>
       <article class="landing-content">
-        <p>Hello, this is</p>
+        <!-- <p>Hello, this is</p> -->
         <h2 class="heading-lg primary">Michael Tesfay</h2>
         <p class="heading-lg secondary">Passionate web developer</p>
         <p class="spartan">
@@ -59,10 +59,13 @@ const downloadFile = () => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin: 2rem;
+  margin: 0 2rem;
+  min-height: 100vh;
+  justify-content: center;
 }
 .spartan {
   font-family: spartan;
+  color: #595a5a;
 }
 .landing-wrapper {
   display: flex;
@@ -97,7 +100,7 @@ const downloadFile = () => {
 }
 
 .secondary {
-  color: lightgray;
+  color: #595a5a;
   font-weight: 800;
   margin: 0;
   font-size: clamp(20px, 4vw, 30px);

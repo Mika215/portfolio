@@ -75,7 +75,7 @@ const projects = ref([
     <LandingPage />
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Project</h2>
       <p>Here are some of the projects i have developed or/& collaborated</p>
       <template class="projects-grid">
         <Project
@@ -90,18 +90,27 @@ const projects = ref([
     </section>
     <Resume />
   </main>
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 <style scoped>
 .wrapper {
+  display: flex;
+  flex-direction: column;
   /* border: 2px solid red; */
 }
 
 #projects {
   margin: 1rem;
   padding: 1rem;
+  min-height: 100vh;
 }
+
+#projects h2 {
+  font-size: 2rem;
+  /* color: red; */
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;

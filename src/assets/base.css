@@ -6,7 +6,8 @@
   --clr-lightNavy: #112240;
   --clr-armyGreen: #202124;
   /* #020c1b; */
-  --clr-green: #64ffda;
+  --clr-green: #d1b000;
+  /* #64ffda; */
   --clr-golden: #d1b000;
   --clr-lightDark: #202124;
   /* #FFD700; */
@@ -32,5 +33,7 @@ html {
   padding: 0;
   margin: 0;
   font-family: var(--sans-main);
+  /* height: 100%; */
+  scroll-behavior: smooth;
   /* "Open Sans", sans-serif; */
 }
