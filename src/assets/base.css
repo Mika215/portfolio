@@ -1,0 +1,32 @@
+/* mikacolor preferences */
+:root {
+  --clr-transparent: #00000000;
+  --clr-skyBlue: rgb(0, 179, 219);
+  --clr-dark: #000000;
+  --clr-lightNavy: #112240;
+  --clr-armyGreen: #020c1b;
+  --clr-green: #64ffda;
+  /* #4b5320; */
+}
+
+/* media querry breakpoints */
+:root {
+  --s: 480px;
+  --m: 768px;
+  --l: 769px;
+}
+
+/* fonts */
+
+:root {
+  --sans-main: "calibre", "Inter", "San Francisco", "SF Pro Text", "sans-serif";
+}
+
+*,
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--sans-main);
+  /* "Open Sans", sans-serif; */
+}
