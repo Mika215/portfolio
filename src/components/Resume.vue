@@ -40,6 +40,7 @@ const companies = ref([
     sartDate: "2022/04/01",
     endDate: "2022/12/30",
     jobTitle: "Frontend developer",
+    website: "https://infinity-mobile.io/",
 
     jobDesc: [
       "Writting clean code",
@@ -62,6 +63,7 @@ const companies = ref([
     sartDate: "2021/09/07",
     endDate: "2022/03/28",
     jobTitle: "Junior developer",
+    website: "https://becode.org/",
 
     jobDesc: [
       "Writting clean code",
@@ -97,7 +99,10 @@ onMounted(() => {
         <div v-if="company.id === activeId" class="work-details">
           <div class="work-details-header">
             <h3>
-              {{ company.jobTitle }} <span>@{{ company.name }}</span>
+              {{ company.jobTitle }}
+              <a :href="company.website" target="”_blank”"
+                >@{{ company.name }}</a
+              >
             </h3>
 
             <p>
@@ -146,6 +151,7 @@ onMounted(() => {
   width: 50px;
   height: 1px;
   margin-left: 15rem;
+
   background-color: var(--clr-golden);
 }
 
@@ -190,6 +196,7 @@ onMounted(() => {
 .tasks-container {
   padding: 0.5rem;
   margin-left: 0.2rem;
+  margin-top: 0.4rem;
 }
 
 .task {

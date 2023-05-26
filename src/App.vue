@@ -6,6 +6,7 @@ import Header from "./components/Header.vue";
 import LandingPage from "./components/LandingPage.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
+import Contact from "./components/Contact.vue";
 import Footer from "./components/Footer.vue";
 
 import Ecommerce from "./assets/images/e-commerce.jpg";
@@ -89,6 +90,7 @@ const projects = ref([
       </template>
     </section>
     <Resume />
+    <Contact />
   </main>
   <!-- <Footer /> -->
 </template>
