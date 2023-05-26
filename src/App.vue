@@ -75,8 +75,8 @@ const projects = ref([
     <LandingPage />
 
     <section id="projects">
-      <h2>Project</h2>
-      <p>Here are some of the projects i have developed or/& collaborated</p>
+      <h2 class="projects-title">Project</h2>
+      <p>Here are some of the projects i have developed</p>
       <template class="projects-grid">
         <Project
           v-for="project in projects"
@@ -106,9 +106,20 @@ const projects = ref([
   min-height: 100vh;
 }
 
-#projects h2 {
+#projects .projects-title {
   font-size: 2rem;
   /* color: red; */
+}
+
+.projects-title::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -16px;
+  width: 70px;
+  height: 1px;
+  margin-left: 8rem;
+  background-color: var(--clr-golden);
 }
 
 .projects-grid {
@@ -123,11 +134,19 @@ const projects = ref([
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .projects-title::after {
+    width: 340px;
+  }
 }
 
 @media (min-width: 649px) and (max-width: 1048px) {
   .projects-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .projects-title::after {
+    width: 575px;
   }
 }
 
@@ -143,6 +162,10 @@ const projects = ref([
   }
   .wrapper {
     margin: 0 12rem;
+  }
+
+  .projects-title::after {
+    width: 815px;
   }
 }
 </style>

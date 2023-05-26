@@ -1,27 +1,8 @@
 <script setup>
-import axios from "axios";
 
 import LandingIcon from "../assets/images/front-end-development.jpeg";
 import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
 
-const downloadFile = () => {
-  axios({
-    // url: `http://localhost:5173/src/assets/files/michael-tesfay-frontend-developer-cv.pdf`,
-    url: `http://localhost:5173${PDFURL}`,
-    method: "GET",
-    responseType: "blob",
-  }).then((res) => {
-    console.log(res.data);
-    let FILE = window.URL.createObjectURL(new Blob([res.data]));
-
-    let docUrl = document.createElement("x");
-
-    docUrl.href = FILE;
-    docUrl.setAttribute("download", "file.pdf");
-    document.body.appendChild(docUrl);
-    docUrl.click();
-  });
-};
 </script>
 
 <template>
