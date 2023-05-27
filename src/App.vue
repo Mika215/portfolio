@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 import {RouterLink, RouterView} from "vue-router";
 
 import Header from "./components/Header.vue";
@@ -13,6 +13,20 @@ import Ecommerce from "./assets/images/e-commerce.jpg";
 import RoomBooking from "./assets/images/room-booking.webp";
 import Axumite from "./assets/images/axumite.webp";
 import Gmail from "./assets/images/gmail.png";
+
+const styledSection = ref(null);
+const sections = ref([]);
+
+const intersecObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("show", entry.isIntersecting);
+    });
+  }
+  // {
+  //   threshold: 1,
+  // }
+);
 
 const projects = ref([
   {
@@ -43,7 +57,7 @@ const projects = ref([
     img: `${Axumite}`,
   },
   {
-    title: "zzzz",
+    title: "IndoKnow",
     type: "FullStack",
     techs: ["React", "Laravel8", "MongoDB"],
     hostedOn: "Hostinger",
@@ -51,31 +65,22 @@ const projects = ref([
     id: 4,
     img: `${Gmail}`,
   },
-  {
-    title: "yyyyy",
-    type: "FullStack",
-    techs: ["React", "Laravel8", "MongoDB"],
-    hostedOn: "Hostinger",
-    description: "Knowledge sharing platform",
-    id: 5,
-  },
-  {
-    title: "xxxx",
-    type: "FullStack",
-    techs: ["React", "Laravel8", "MongoDB"],
-    hostedOn: "Hostinger",
-    description: "Knowledge sharing platform",
-    id: 6,
-  },
 ]);
+
+onMounted(() => {
+  sections.value = document.querySelectorAll(".styled-section");
+  sections.value.forEach((section) => {
+    intersecObserver.observe(section);
+  });
+});
 </script>
 
 <template>
   <Header />
   <main class="wrapper">
-    <LandingPage />
+    <LandingPage ref="styledSection" />
 
-    <section id="projects">
+    <section id="projects" class="styled-section">
       <h2 class="projects-title">Project</h2>
       <p>Here are some of the projects i have developed</p>
       <template class="projects-grid">
@@ -89,8 +94,8 @@ const projects = ref([
         />
       </template>
     </section>
-    <Resume />
-    <Contact />
+    <Resume class="styled-section" />
+    <Contact class="styled-section" />
   </main>
   <!-- <Footer /> -->
 </template>
@@ -99,7 +104,17 @@ const projects = ref([
 .wrapper {
   display: flex;
   flex-direction: column;
-  /* border: 2px solid red; */
+}
+
+.styled-section {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: 870ms;
+}
+
+.show {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 #projects {
@@ -110,7 +125,6 @@ const projects = ref([
 
 #projects .projects-title {
   font-size: 2rem;
-  /* color: red; */
 }
 
 .projects-title::after {

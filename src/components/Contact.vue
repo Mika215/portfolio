@@ -17,14 +17,16 @@ onMounted(() => {
   <section id="contact">
     <h2>Contact</h2>
     <article>
-      <p>
-        You want to reach me out for a job offer,our rather to have furher
-        converstaion? well my inbox is always open to recieve your emails just
-        drop me one and i would be glad to read you and to come back to you at
-        the earliest!
-      </p>
+      <div class="contact-desc">
+        <p>
+          You want to reach me out for a job offer,our rather to have furher
+          converstaion? well my inbox is always open to recieve your emails just
+          drop me one and i would be glad to read you and to come back to you at
+          the earliest!
+        </p>
+      </div>
 
-      <form v-if="contact" action="" class="form">
+      <form v-if="contact" action="" class="contact-form">
         <div class="name">
           <div>
             <label for="firstName">First Name</label>
@@ -68,10 +70,22 @@ article {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  margin: 2rem 7rem;
+  margin: 2rem 4rem;
 }
 
-.form {
+.contact-desc {
+  border: 1px solid black;
+  padding: 7.2rem 2rem;
+  background-color: var(--clr-armyGreen);
+  border-radius: 4%;
+}
+
+.contact-desc p {
+  color: white;
+  padding: 1rem;
+}
+
+.contact-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
