@@ -127,7 +127,7 @@ onMounted(() => {
   font-size: 2rem;
 }
 
-.projects-title::after {
+/* .projects-title::after {
   content: "";
   display: block;
   position: relative;
@@ -136,7 +136,7 @@ onMounted(() => {
   height: 1px;
   margin-left: 8rem;
   background-color: var(--clr-golden);
-}
+} */
 
 .projects-grid {
   display: grid;

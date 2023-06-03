@@ -1,12 +1,43 @@
 <script setup>
 import {ref, onMounted} from "vue";
+import LinkedinIcon from "../assets/images/linkedin-icon.svg";
+import GithubIcon from "../assets/images/github-icon.svg";
+import DiscordIcon from "../assets/images/discord-icon.svg";
+import StackOverflowIcon from "../assets/images/stackoverflow-icon.svg";
 
 const contact = ref({
-  firstName: "xx",
-  lastName: "xxx",
+  name: "",
   email: "",
-  message: "x",
+  message: "",
 });
+
+const onSubmit = () => {
+  console.log("Form submited!");
+  console.log(contact);
+};
+
+const socialMedias = ref([
+  {
+    name: "LinkedIn",
+    logo: LinkedinIcon,
+    href: "https://www.linkedin.com/in/mikacodes",
+  },
+  {
+    name: "GitHub",
+    logo: GithubIcon,
+    href: "https://github.com/Mika215",
+  },
+  {
+    name: "Discord",
+    logo: DiscordIcon,
+    href: "https://discordapp.com/users/883995435277090827",
+  },
+  {
+    name: "StackOverFlow",
+    logo: StackOverflowIcon,
+    href: "https://stackexchange.com/users/23826130/michael",
+  },
+]);
 
 onMounted(() => {
   console.log(contact.value);
@@ -15,102 +46,194 @@ onMounted(() => {
 
 <template>
   <section id="contact">
-    <h2>Contact</h2>
-    <article>
-      <div class="contact-desc">
-        <p>
-          You want to reach me out for a job offer,our rather to have furher
-          converstaion? well my inbox is always open to recieve your emails just
-          drop me one and i would be glad to read you and to come back to you at
-          the earliest!
-        </p>
+    <div class="section-header">
+      <h1>Get in touch</h1>
+      <div class="contact-socials">
+        <ul class="contact-socials-container">
+          <li v-for="(social, i) in socialMedias" :key="i" class="social">
+            <a :href="social.href" target="_blank">
+              <span>
+                <img :src="social.logo" :alt="social.name" />
+              </span>
+            </a>
+          </li>
+        </ul>
       </div>
-
-      <form v-if="contact" action="" class="contact-form">
-        <div class="name">
-          <div>
-            <label for="firstName">First Name</label>
+    </div>
+    <div class="contact-body">
+      <div class="contact-text">
+        Please feel free to get in touch anytime, whether for work inquiries or
+        to just say hello! I am currently looking for junior developer job
+        ofers, and always excited to hear for your interesting proposals.
+      </div>
+      <form @submit.prevent="onSubmit" class="contact-form">
+        <div class="sender-info">
+          <div class="subform-wrapper">
+            <label for="name">Your name</label>
             <input
               type="text"
-              name="firstName"
-              value="contact.value.firstName"
+              id="name"
+              :value="contact.name"
+              placeholder="enter your full name..."
             />
           </div>
-          <div>
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" value="contact.value.lastName" />
+          <div class="subform-wrapper">
+            <label for="email">Your email</label>
+            <input
+              type="text"
+              id="email"
+              :value="contact.email"
+              placeholder="enter your email..."
+            />
           </div>
         </div>
-        <label for="email">Email</label>
-        <input type="email" value="contact.value.email" />
-        <label for="message">Message</label>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          value="contact.value.message"
-          required
-        ></textarea>
-        <button>Submit</button>
+        <div class="sender-message">
+          <label for="message">Your name</label>
+          <textarea
+            id="w3review"
+            name="w3review"
+            rows="10"
+            cols="auto"
+            :value="contact.message"
+            placeholder="Write your message here..."
+          ></textarea>
+        </div>
+        <div class="button-container">
+          <button>Send</button>
+        </div>
       </form>
-    </article>
+    </div>
   </section>
 </template>
 
 <style scoped>
 #contact {
   min-height: 100vh;
-  border: 2px solid red;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-article {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.section-header h1 {
+  font-size: 2rem;
+}
+
+.contact-socials-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.social {
+  list-style: none;
+}
+.social span {
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 4rem;
+  height: 40px;
+  width: 40px;
+  padding: 0.33rem;
+  border: 1px solid silver;
+
+  border-radius: 50%;
+}
+.social img {
+  height: 32px;
+  width: 32px;
+  padding: 0.33rem;
+  object-fit: cover;
+  transition: 0.11s;
 }
 
-.contact-desc {
-  border: 1px solid black;
-  padding: 7.2rem 2rem;
-  background-color: var(--clr-armyGreen);
-  border-radius: 4%;
+.social img:hover {
+  padding: 0.2rem;
 }
 
-.contact-desc p {
-  color: white;
-  padding: 1rem;
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-text {
+  text-align: justify;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 400px;
-  /* min-width: 370px; */
-  width: auto;
-  padding: 3rem 2rem;
-  border-radius: 4%;
-  /* margin: 10rem 18rem; */
-  /* border: 2px solid green; */
-
-  -webkit-box-shadow: -5px 6px 15px -1px rgba(152, 158, 154, 0.97);
-  -moz-box-shadow: -5px 6px 15px -1px rgba(152, 158, 154, 0.97);
-  box-shadow: -5px 6px 15px -1px rgba(152, 158, 154, 0.97);
+  gap: 1.5rem;
 }
 
-.name {
+.sender-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.sender-info input {
+  padding: 10px 15px;
+}
+
+.subform-wrapper {
   display: flex;
-  gap: 0.3rem;
-  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
 }
+
+.sender-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.sender-message textarea {
+  padding: 10px 15px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: auto;
+  border-radius: 24px;
+  background-color: var(--clr-armyGreen);
+  color: white;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border: none;
+}
+
+/* .section-header h1::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -16px;
+  width: 80%;
+  height: 1px;
+  margin-left: 12rem;
+  background-color: var(--clr-golden);
+} */
 
 @media (min-width: 421px) {
-  article {
+  .sender-info {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .button-container {
+    justify-content: flex-end;
   }
 }
 </style>

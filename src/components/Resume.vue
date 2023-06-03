@@ -143,7 +143,7 @@ onMounted(() => {
   position: relative;
 }
 
-.resume-title::after {
+/* .resume-title::after {
   content: "";
   display: block;
   position: relative;
@@ -153,7 +153,7 @@ onMounted(() => {
   margin-left: 15rem;
 
   background-color: var(--clr-golden);
-}
+} */
 
 .resume-content {
   margin-top: 1.5rem;
@@ -179,7 +179,6 @@ onMounted(() => {
 
 .work-details {
   padding: 0.5rem;
-  /* border: 3px solid yellow; */
 }
 
 .-is-active {
