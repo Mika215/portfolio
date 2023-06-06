@@ -77,9 +77,24 @@ onMounted(() => {
 
 <template>
   <Header />
-  <main class="main-wrapper">
+  <main class="wrapper">
     <Landing ref="styledSection" />
 
+    
+    <div class="app-main">
+      <div class="app-main__wrapper">
+        <div class="app-main__wrapper-test">
+          <ul class="list-container">
+            <li class="list-item">1</li>
+            <li class="list-item">2</li>
+
+            <li class="list-item">3</li>
+
+            <li class="list-item">4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <section id="projects" class="styled-section">
       <h2 class="projects-title">Project</h2>
       <p>Here are some of the projects i have developed</p>
@@ -99,3 +114,89 @@ onMounted(() => {
   </main>
   <!-- <Footer /> -->
 </template>
+
+<style scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.styled-section {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: 870ms;
+}
+
+.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#projects {
+  margin: 1rem;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+#projects .projects-title {
+  font-size: 2rem;
+}
+
+/* .projects-title::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -16px;
+  width: 70px;
+  height: 1px;
+  margin-left: 8rem;
+  background-color: var(--clr-golden);
+} */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-items: center;
+}
+
+@media (min-width: 421px) and (max-width: 648px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-title::after {
+    width: 340px;
+  }
+}
+
+@media (min-width: 649px) and (max-width: 1048px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .projects-title::after {
+    width: 575px;
+  }
+}
+
+@media (min-width: 854px) {
+  .wrapper {
+    margin: 0 3rem;
+  }
+}
+
+@media (min-width: 1049px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .wrapper {
+    margin: 0 12rem;
+  }
+
+  .projects-title::after {
+    width: 815px;
+  }
+}
+</style>

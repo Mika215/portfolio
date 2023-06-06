@@ -1,0 +1,150 @@
+// you forgot to use the & sign while subnesting elements and modifiers
+// .section-contact {
+//   $root: ".section-contact";
+//   #{$root}__header {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.8rem;
+//     //   }
+
+//     #{$root}__header h1 {
+//       font-size: 2rem;
+//     }
+//     //   #{$root}__header h1::after {
+//     //     content: "";
+//     //     display: block;
+//     //     position: relative;
+//     //     top: -16px;
+//     //     width: 80%;
+//     //     height: 1px;
+//     //     margin-left: 12rem;
+//     //     background-color: var(--clr-golden);
+//     //   }
+
+//     #{$root}__socials-wrapper {
+//       display: flex;
+//       gap: 1rem;
+//       #{$root}__social-item {
+//         list-style: none;
+//       }
+
+//       #{$root}__social-item span {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 40px;
+//         width: 40px;
+//         padding: 0.33rem;
+//         border: 1px solid silver;
+
+//         border-radius: 50%;
+//       }
+
+//       #{$root}__social-item img {
+//         height: 32px;
+//         width: 32px;
+//         padding: 0.33rem;
+//         object-fit: cover;
+//         transition: 0.11s;
+//       }
+
+//       #{$root}__social-item img:hover {
+//         padding: 0.2rem;
+//       }
+//     }
+//   }
+
+//   #{$root}__body {
+//     border: 2px solid red;
+
+//     display: flex;
+//     flex-direction: column;
+//     gap: 2rem;
+
+//     #{$root}__body-txt {
+//       text-align: justify;
+//     }
+//     //   }
+
+//     #{$root}__form {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 1.5rem;
+
+//       #{$root}__form-astrics {
+//         color: red;
+//       }
+
+//       #{$root}__form-sender-info {
+//         display: grid;
+//         grid-template-columns: 1fr;
+//         gap: 1.5rem;
+
+//         #{$root}__form-subform-wrapper {
+//           display: flex;
+//           flex-direction: column;
+//           gap: 0.5rem;
+//         }
+
+//         @media (min-width: 421px) {
+//           #{$root}__form-sender-info {
+//             grid-template-columns: repeat(2, 1fr);
+//           }
+//         }
+
+//         #{$root}__form-sender-info input {
+//           padding: 10px 15px;
+//         }
+//       }
+
+//       #{$root}__form-subform-wrapper {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 0.5rem;
+//         #{$root}__form-sender-message {
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: center;
+//           gap: 0.5rem;
+//         }
+//         #{$root}__form-sender-message textarea {
+//           padding: 10px 15px;
+//         }
+//       }
+//       #{$root}__form-btn-container {
+//         display: flex;
+//         justify-content: center;
+
+//         @media (min-width: 421px) {
+//           #{$root}__form-btn-container {
+//             justify-content: flex-end;
+//           }
+//         }
+
+//         #{$root}__form-btn-container button {
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           height: 2rem;
+//           width: auto;
+//           border-radius: 24px;
+//           background-color: var(--clr-armyGreen);
+//           color: white;
+//           font-weight: 700;
+//           padding: 0.7rem 1.5rem;
+//           border: none;
+//         }
+//       }
+//     }
+//   }
+
+//   //   @media (min-width: 421px) {
+//   //     #{$root}__form-sender-info {
+//   //       grid-template-columns: repeat(2, 1fr);
+//   //     }
+
+//   //     #{$root}__form-btn-container {
+//   //       justify-content: flex-end;
+//   //     }
+//   //   }
+// }

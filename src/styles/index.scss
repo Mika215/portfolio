@@ -1,0 +1,21 @@
+//////////////////////////////
+// abstract  in sass order maters so variables should come on the top
+//unless it will throw error because the variables being called in different files will not be recognized
+//////////////////////////////
+@import "./abstract/variables";
+@import "./abstract/base";
+
+//////////////////////////////
+// components
+//////////////////////////////
+@import "./components/Contact";
+@import "./components/Experience";
+@import "./components/Footer";
+@import "./components/Header";
+@import "./components/Landing";
+@import "./components/Project";
+
+//////////////////////////////
+// layouts
+//////////////////////////////
+@import "./layouts/App";

@@ -1,20 +1,11 @@
 <script setup>
-import {ref, onMounted} from "vue";
+import {ref, onMounted, computed} from "vue";
 import LinkedinIcon from "../assets/images/linkedin-icon.svg";
 import GithubIcon from "../assets/images/github-icon.svg";
 import DiscordIcon from "../assets/images/discord-icon.svg";
 import StackOverflowIcon from "../assets/images/stackoverflow-icon.svg";
 
-const contact = ref({
-  name: "",
-  email: "",
-  message: "",
-});
-
-const onSubmit = () => {
-  console.log("Form submited!");
-  console.log(contact);
-};
+const Form_Url = import.meta.env.VITE_FORMSPREE_URL;
 
 const socialMedias = ref([
   {
@@ -39,18 +30,20 @@ const socialMedias = ref([
   },
 ]);
 
-onMounted(() => {
-  console.log(contact.value);
-});
+onMounted(() => {});
 </script>
 
 <template>
-  <section id="contact">
-    <div class="section-header">
+  <section id="contact" class="section-contact">
+    <div class="section-contact__header">
       <h1>Get in touch</h1>
-      <div class="contact-socials">
-        <ul class="contact-socials-container">
-          <li v-for="(social, i) in socialMedias" :key="i" class="social">
+      <div class="section-contact__socials">
+        <ul class="section-contact__socials-wrapper">
+          <li
+            v-for="(social, i) in socialMedias"
+            :key="i"
+            class="section-contact__social-item"
+          >
             <a :href="social.href" target="_blank">
               <span>
                 <img :src="social.logo" :alt="social.name" />
@@ -60,45 +53,60 @@ onMounted(() => {
         </ul>
       </div>
     </div>
-    <div class="contact-body">
-      <div class="contact-text">
+    <div class="section-contact__body">
+      <div class="section-contact__body-txt">
         Please feel free to get in touch anytime, whether for work inquiries or
         to just say hello! I am currently looking for junior developer job
         ofers, and always excited to hear for your interesting proposals.
       </div>
-      <form @submit.prevent="onSubmit" class="contact-form">
-        <div class="sender-info">
-          <div class="subform-wrapper">
-            <label for="name">Your name</label>
+      <form :action="Form_Url" class="section-contact__form" method="POST">
+        <div class="section-contact__form-sender-info">
+          <div class="section-contact__form-subform-wrapper">
+            <label for="fullname"
+              >Your name
+              <span class="section-contact__form-astrics">*</span></label
+            >
             <input
               type="text"
-              id="name"
-              :value="contact.name"
+              id="fullname"
+              name="fullname"
               placeholder="enter your full name..."
+              required
+              v-model="fullname"
             />
           </div>
-          <div class="subform-wrapper">
-            <label for="email">Your email</label>
+          <div class="section-contact__form-subform-wrapper">
+            <label for="email"
+              >Your email
+              <span class="section-contact__form-astrics">*</span></label
+            >
             <input
-              type="text"
+              type="email"
               id="email"
-              :value="contact.email"
+              name="email"
               placeholder="enter your email..."
+              v-model="email"
+              required
             />
           </div>
         </div>
-        <div class="sender-message">
-          <label for="message">Your name</label>
+        <div class="section-contact__form-sender-message">
+          <label for="message"
+            >Your message<span class="section-contact__form-astrics"
+              >*</span
+            ></label
+          >
           <textarea
-            id="w3review"
-            name="w3review"
+            id="message"
+            name="message"
             rows="10"
             cols="auto"
-            :value="contact.message"
             placeholder="Write your message here..."
+            v-model="message"
+            required
           ></textarea>
         </div>
-        <div class="button-container">
+        <div class="section-contact__form-btn-container">
           <button>Send</button>
         </div>
       </form>
@@ -115,25 +123,25 @@ onMounted(() => {
   gap: 1.5rem;
 }
 
-.section-header {
+.section-contact__header {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.section-header h1 {
+.section-contact__header h1 {
   font-size: 2rem;
 }
 
-.contact-socials-container {
+.section-contact__socials-wrapper {
   display: flex;
   gap: 1rem;
 }
 
-.social {
+.section-contact__social-item {
   list-style: none;
 }
-.social span {
+.section-contact__social-item span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +152,7 @@ onMounted(() => {
 
   border-radius: 50%;
 }
-.social img {
+.section-contact__social-item img {
   height: 32px;
   width: 32px;
   padding: 0.33rem;
@@ -152,57 +160,66 @@ onMounted(() => {
   transition: 0.11s;
 }
 
-.social img:hover {
+.section-contact__social-item img:hover {
   padding: 0.2rem;
 }
 
-.contact-body {
+.section-contact__body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.contact-text {
+.section-contact__body-txt {
   text-align: justify;
 }
 
-.contact-form {
+.section-contact__form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
+.section-contact__form-astrics {
+  color: red;
+}
 
-.sender-info {
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 0.8rem;
+  padding-left: 0.2rem;
+}
+.section-contact__form-sender-info {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
-.sender-info input {
+.section-contact__form-sender-info input {
   padding: 10px 15px;
 }
 
-.subform-wrapper {
+.section-contact__form-subform-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.sender-message {
+.section-contact__form-sender-message {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
 }
-.sender-message textarea {
+.section-contact__form-sender-message textarea {
   padding: 10px 15px;
 }
 
-.button-container {
+.section-contact__form-btn-container {
   display: flex;
   justify-content: center;
 }
-.button-container button {
+.section-contact__form-btn-container button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,7 +233,7 @@ onMounted(() => {
   border: none;
 }
 
-/* .section-header h1::after {
+/* .section-contact__header h1::after {
   content: "";
   display: block;
   position: relative;
@@ -228,11 +245,11 @@ onMounted(() => {
 } */
 
 @media (min-width: 421px) {
-  .sender-info {
+  .section-contact__form-sender-info {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .button-container {
+  .section-contact__form-btn-container {
     justify-content: flex-end;
   }
 }
