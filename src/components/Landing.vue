@@ -1,8 +1,6 @@
 <script setup>
-
 import LandingIcon from "../assets/images/front-end-development.jpeg";
 import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
-
 </script>
 
 <template>
@@ -14,15 +12,29 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
       <article class="landing-content">
         <!-- <p>Hello, this is</p> -->
         <h2 class="heading-lg primary">Michael Tesfay</h2>
-        <p class="heading-lg secondary">Passionate web developer</p>
+        <p class="heading-lg secondary">One solution leads to the next!</p>
         <p class="spartan">
-          I am a junior web developer specializing on MongoDB, Express React
-          NodeJS (the MERN stack). I took a bold decision to make a carrier
-          shift from a media and communications professional background(in which
-          i have worked for about a decade) to acquire a powerful tool - Web
-          Development. I strongly believe that webdev is all about problem
-          solving and i am determined to persist along with other web developers
-          in the adventure of solving real problems which abundantly exist all
+          I am a junior web developer specializing on MongoDB,
+          Express,VueJs,React and NodeJS. I took a bold decision to make a
+          carrier shift from a media and communications professional
+          background(in which i have worked for about a decade) to acquire a
+          powerful tool - Web Development. <br />In addition to my technical
+          skills, I also possess strong soft skills such as communication and
+          teamwork. These skills enable me to work effectively with others and
+          deliver projects that meet client requirements.
+        </p>
+        <p class="spartan">
+          When I'm not working on coding projects, I enjoy indulging in my
+          hobbies of ping-pong,swimming and Volunteering . These activities
+          allow me to unwind and recharge after spending long hours coding.
+        </p>
+        <p class="spartan">
+          Overall, I would describe myself as a reliable and hardworking
+          individual who takes great pride in my work. I'm always looking for
+          ways to improve my skills and knowledge to stay up-to-date with the
+          latest web development trends. <br />I strongly believe that webdev is
+          all about problem solving and i am determined to persist in the
+          adventure of solving real world problems which abundantly exist all
           over my surrounding.
         </p>
       </article>
@@ -47,6 +59,9 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
 .spartan {
   font-family: spartan;
   color: #595a5a;
+}
+.spartan + .spartan {
+  margin-top: 0.7rem;
 }
 .landing-wrapper {
   display: flex;
