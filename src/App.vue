@@ -1,51 +1,48 @@
 <script setup>
 import {ref, onMounted} from "vue";
 import {RouterLink, RouterView} from "vue-router";
+import {intersecObserver} from "./helpers/index.js";
 
 import Header from "./components/Header.vue";
 import Landing from "./components/Landing.vue";
+import SearchBar from "./components/SearchBar.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
 import Contact from "./components/Contact.vue";
 import Footer from "./components/Footer.vue";
 
 import Ecommerce from "./assets/images/e-commerce.jpg";
+import Behelp from "./assets/images/behelp.png";
+import Behelp2 from "./assets/images/behelp-2.png";
+
 import RoomBooking from "./assets/images/room-booking.webp";
 import Axumite from "./assets/images/axumite.webp";
 import Gmail from "./assets/images/gmail.png";
+import DjProject from "./assets/images/dj-project.png";
 
 const styledSection = ref(null);
 const sections = ref([]);
-
-const intersecObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle("show", entry.isIntersecting);
-    });
-  }
-  // {
-  //   threshold: 1,
-  // }
-);
 
 const projects = ref([
   {
     title: "DallolMart",
     type: "FullStack",
-    techs: ["Vue3", "NodeJs", "MongoDB"],
+    techs: ["React", "NodeJs", "Mongoose", "Strip"],
     hostedOn: "Netlify",
     description: "Fullstack online commerce",
     id: 1,
     img: `${Ecommerce}`,
   },
   {
-    title: "Hidmona",
+    title: "Behelp",
     type: "FullStack",
-    techs: ["Vue3", "NodeJs", "Mysql", "Strip"],
+    techs: ["Vue2", "Sass", "Mongoose", "NodeJs"],
     hostedOn: "Heroku",
-    description: "Online roombooking",
+    description: "Refugees & volunteers in BE",
     id: 2,
-    img: `${RoomBooking}`,
+    img: `${Behelp2}`,
+
+    href: "https://behelp.netlify.app/",
   },
   {
     title: "Axumite",
@@ -57,18 +54,19 @@ const projects = ref([
     img: `${Axumite}`,
   },
   {
-    title: "IndoKnow",
+    title: "Project DJ - Mr Oizo",
     type: "FullStack",
-    techs: ["React", "Laravel8", "MongoDB"],
+    techs: ["HTML5", "Sass", "vanilaJS"],
     hostedOn: "Hostinger",
-    description: "Knowledge sharing platform",
+    description: "DJ's new releases and events.",
     id: 4,
-    img: `${Gmail}`,
+    img: `${DjProject}`,
+    href: "https://mrsociety404.github.io/dj-project/index.html",
   },
 ]);
 
 onMounted(() => {
-  sections.value = document.querySelectorAll(".styled-section");
+  sections.value = document.querySelectorAll(".-has-obsereved");
   sections.value.forEach((section) => {
     intersecObserver.observe(section);
   });
@@ -79,9 +77,10 @@ onMounted(() => {
   <Header />
   <main class="wrapper">
     <Landing ref="styledSection" />
-    <section id="projects" class="styled-section">
+    <section id="projects" class="-has-obsereved">
       <h2 class="projects-title">Project</h2>
       <p>Here are some of the projects i have developed</p>
+      <SearchBar />
       <template class="projects-grid">
         <Project
           v-for="project in projects"
@@ -90,11 +89,12 @@ onMounted(() => {
           :description="project.description"
           :img="project.img"
           :techs="project.techs"
+          :href="project.href"
         />
       </template>
     </section>
-    <Resume class="styled-section" />
-    <Contact class="styled-section" />
+    <Resume class="-has-obsereved" />
+    <Contact class="-has-obsereved" />
   </main>
   <!-- <Footer /> -->
 </template>
@@ -105,7 +105,7 @@ onMounted(() => {
   flex-direction: column;
 }
 
-.styled-section {
+.-has-obsereved {
   transform: translateX(100px);
   opacity: 0;
   transition: 870ms;

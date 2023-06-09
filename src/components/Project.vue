@@ -16,11 +16,14 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  href: {
+    type: String,
+  },
 });
 </script>
 
 <template>
-  <div class="project-box">
+  <div class="project-box -has-obsereved">
     <header>
       <div class="project-top">
         <img :src="GithubIcon" alt="" />
@@ -28,8 +31,11 @@ const props = defineProps({
       </div>
       <h3 class="project-title">{{ title }}</h3>
       <p class="project-description">{{ description }}</p>
+
       <div class="project-image">
-        <img :src="img" alt="" />
+        <a :href="href" target="_blank">
+          <img :src="img" alt="" />
+        </a>
       </div>
     </header>
     <footer>
@@ -101,6 +107,7 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .project-image img {
   object-fit: fit;

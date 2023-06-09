@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted, computed} from "vue";
+import {ref, computed} from "vue";
 import LinkedinIcon from "../assets/images/linkedin-icon.svg";
 import GithubIcon from "../assets/images/github-icon.svg";
 import DiscordIcon from "../assets/images/discord-icon.svg";
@@ -29,8 +29,6 @@ const socialMedias = ref([
     href: "https://stackexchange.com/users/23826130/michael",
   },
 ]);
-
-onMounted(() => {});
 </script>
 
 <template>
