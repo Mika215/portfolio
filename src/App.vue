@@ -22,6 +22,31 @@ import DjProject from "./assets/images/dj-project.png";
 
 const styledSection = ref(null);
 const sections = ref([]);
+const isActiveMobMenu = ref(false);
+const isHiddenMobMenu = ref(true);
+
+const mobileMenuItems = ref([
+  {
+    label: "About",
+    id: "about",
+    href: "#about",
+  },
+  {
+    label: "Projects",
+    id: "projects",
+    href: "#projects",
+  },
+  {
+    label: "Experience",
+    id: "experience",
+    href: "#experience",
+  },
+  {
+    label: "Contact",
+    id: "contact",
+    href: "#contact",
+  },
+]);
 
 const projects = ref([
   {
@@ -64,6 +89,10 @@ const projects = ref([
     href: "https://mrsociety404.github.io/dj-project/index.html",
   },
 ]);
+const handleMenu = (event) => {
+  isActiveMobMenu.value = !isActiveMobMenu.value;
+  isHiddenMobMenu.value = !isHiddenMobMenu.value;
+};
 
 onMounted(() => {
   sections.value = document.querySelectorAll(".-has-obsereved");
@@ -74,8 +103,27 @@ onMounted(() => {
 </script>
 
 <template>
-  <Header />
+  <Header
+    @toggle-menu="handleMenu"
+    :isActive="isActiveMobMenu"
+    :isHidden="isHiddenMobMenu"
+  />
   <main class="wrapper">
+    <div
+      v-if="isActiveMobMenu"
+      class="mobile-menu"
+      :class="{'is-hidden': isHiddenMobMenu}"
+    >
+      <div class="menu-items">
+        <a
+          v-for="item in mobileMenuItems"
+          class="menu-item"
+          :key="item.id"
+          :href="item.id"
+          >{{ item.label }}</a
+        >
+      </div>
+    </div>
     <Landing ref="styledSection" />
     <section id="projects" class="-has-obsereved">
       <h2 class="projects-title">Project</h2>
@@ -103,6 +151,45 @@ onMounted(() => {
 .wrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.mobile-menu {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: #112240;
+  opacity: 0.99;
+  transition: 0.5s;
+}
+
+.mobile-menu .is-hidden {
+  display: none;
+  overflow: hidden;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 20px;
+  margin-top: 4rem;
+}
+
+.menu-item {
+  display: flex;
+  text-decoration: none;
+  background: ivory;
+  opacity: 0.8;
+  color: #5a5436;
+  width: 70%;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.menu-item:hover {
+  color: var(--clr-golden);
+  font-weight: 600; 
 }
 
 .-has-obsereved {
@@ -143,6 +230,12 @@ onMounted(() => {
   gap: 1rem;
   margin-top: 1rem;
   justify-items: center;
+}
+
+@media (min-width: 420.1px) {
+  .mobile-menu {
+    display: none;
+  }
 }
 
 @media (min-width: 421px) and (max-width: 648px) {

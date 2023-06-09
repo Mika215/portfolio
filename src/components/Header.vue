@@ -1,15 +1,28 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
+const emit = defineEmits(["toggle-menu"]);
 
-const isActive = ref(false);
-const isHidden = ref(true);
+// const isActive = ref(false);
+// const isHidden = ref(true);
 
 const toggleMobMenu = () => {
-  isActive.value = !isActive.value;
-  isHidden.value = !isHidden.value;
+  emit("toggle-menu");
+  console.log(`isActive:${props.isActive}, isHidden:${props.isHidden}`);
 
-  console.log(isActive.value);
+  // isActive.value = !isActive.value;
+  // isHidden.value = !isHidden.value;
+
+  // console.log(isActive.value);
 };
+
+const props = defineProps({
+  isActive: {
+    type: Boolean,
+  },
+  isHidden: {
+    type: Boolean,
+  },
+});
 
 const menuItems = ref([
   {
@@ -33,7 +46,11 @@ const menuItems = ref([
     href: "#contact",
   },
 ]);
+onMounted(() => {
+  // console.log(`isActive:${props.isActive}, isHidden:${props.isHidden}`);
+});
 </script>
+
 <template>
   <div class="nav">
     <span class="logo"> Mikacodes </span>
@@ -43,7 +60,7 @@ const menuItems = ref([
       @click="toggleMobMenu"
     >
       <div class="bar bar-two"></div>
-    </div>    
+    </div>
     <ul class="nav-items">
       <li class="nav-item">
         <a v-for="item in menuItems" :key="item.id" :href="item.href">{{
@@ -52,18 +69,6 @@ const menuItems = ref([
       </li>
     </ul>
   </div>
-
-  <!-- <div class="side-menu" :class="{'is-hidden': isHidden}">
-    <div class="menu-items">
-      <a
-        v-for="item in menuItems"
-        :key="item.id"
-        class="menu-item"
-        :href="item.id"
-        >{{ item.label }}</a
-      >
-    </div>
-  </div> -->
 </template>
 
 <style scoped>
@@ -136,40 +141,6 @@ const menuItems = ref([
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.side-menu {
-  height: 100vh;
-  width: 100%;
-  background-color: #4b5320;
-  opacity: 0.8;
-  transition: 0.5s;
-}
-
-.side-menu.is-hidden {
-  width: 0;
-  overflow: hidden;
-}
-
-.menu-items {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 20px;
-}
-
-.menu-item {
-  display: flex;
-  /* display: block; */
-  text-decoration: none;
-  background: ivory;
-  opacity: 0.8;
-  color: #5a5436;
-  width: 50%;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-}
-
 .nav {
   display: flex;
   position: relative;
@@ -214,6 +185,7 @@ const menuItems = ref([
 .nav-item a:hover {
   /* background-color: white; */
   color: var(--clr-green);
+  font-weight: 600;
 }
 .nav-item a:active {
   color: var(--clr-green);
@@ -248,8 +220,5 @@ const menuItems = ref([
   /* .nav {
     padding: 0 3rem;
   } */
-  .side-menu {
-    display: none;
-  }
 }
 </style>

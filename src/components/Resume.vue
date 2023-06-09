@@ -177,6 +177,10 @@ onMounted(() => {
   cursor: pointer;
 }
 
+.work-details-header h3 a {
+  color: var(--clr-golden);
+}
+
 .work-details {
   padding: 0.5rem;
 }
