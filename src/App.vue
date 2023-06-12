@@ -94,6 +94,17 @@ const handleMenu = (event) => {
   isHiddenMobMenu.value = !isHiddenMobMenu.value;
 };
 
+// const rootElement = document.documentElement;
+// var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+const scrollToTop = () => {
+  // console.log(scrollTotal);
+
+  // console.log("scroll  detected!");
+  window.scrollTo({top: 0, behaviour: "smooth"});
+};
+
+// document.addEventListener("scroll", scrollToTop);
+// document.addEventListner("scroll", scrollToTop);
 onMounted(() => {
   sections.value = document.querySelectorAll(".-has-obsereved");
   sections.value.forEach((section) => {
@@ -109,6 +120,7 @@ onMounted(() => {
     :isHidden="isHiddenMobMenu"
   />
   <main class="wrapper">
+    <button class="scrol-to-top" @click="scrollToTop">Scroll Top</button>
     <div
       v-if="isActiveMobMenu"
       class="mobile-menu"
@@ -128,7 +140,7 @@ onMounted(() => {
     <section id="projects" class="-has-obsereved">
       <h2 class="projects-title">Project</h2>
       <p>Here are some of the projects i have developed</p>
-      <SearchBar />
+      <!-- <SearchBar /> -->
       <template class="projects-grid">
         <Project
           v-for="project in projects"
@@ -152,6 +164,28 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.scrol-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  border: none;
+  bottom: 30px;
+  right: 15px;
+  z-index: 999;
+  color: black;
+  font-weight: 600;
+  height: 50px;
+  width: 50px;
+  padding: 1.7rem 1.7rem;
+  background-color: var(--clr-golden);
+  cursor: pointer;
+  -webkit-box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
+  box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
 }
 .mobile-menu {
   position: absolute;
@@ -189,7 +223,7 @@ onMounted(() => {
 }
 .menu-item:hover {
   color: var(--clr-golden);
-  font-weight: 600; 
+  font-weight: 600;
 }
 
 .-has-obsereved {
