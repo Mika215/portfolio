@@ -1,6 +1,7 @@
 <script setup>
 import LandingIcon from "../assets/images/front-end-development.jpeg";
-import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
+import Michael from "../assets/images/michael.jpeg";
+import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
 </script>
 
 <template>
@@ -8,16 +9,16 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
     <div class="landing-wrapper">
       <div class="landing-image">
         <img :src="LandingIcon" alt="encryption-svg" />
+        <!-- <img :src="Michael" alt="encryption-svg" /> -->
       </div>
       <article class="landing-content">
-        <!-- <p>Hello, this is</p> -->
         <h2 class="heading-lg primary">Michael Tesfay</h2>
         <p class="heading-lg secondary">One solution leads to the next!</p>
         <p class="spartan">
           I am a junior web developer specializing on MongoDB,
           Express,VueJs,React and NodeJS. I took a bold decision to make a
           carrier shift from a media and communications professional
-          background(in which i have worked for about a decade) to acquire a
+          background(in which i have worked for about a decade) in persuit of a
           powerful tool - Web Development. <br />In addition to my technical
           skills, I also possess strong soft skills such as communication and
           teamwork. These skills enable me to work effectively with others and
@@ -42,7 +43,6 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
     <div class="btn-container">
       <v-icon name="flag"></v-icon>
       <a :href="PDFURL" class="cv-btn" download>Download CV</a>
-      <!-- <button @click="downloadFile" class="cv-btn">Download CV</button> -->
     </div>
   </section>
 </template>
@@ -71,6 +71,8 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
 }
 .landing-image {
   padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
 }
 .landing-image img {
   max-width: 100%;
@@ -81,6 +83,7 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-developer-cv.pdf";
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1.5rem 0;
 }
 
 .btn-container a {

@@ -175,7 +175,7 @@ onMounted(() => {
   border: none;
   bottom: 30px;
   right: 15px;
-  z-index: 999;
+  z-index: 99;
   color: black;
   font-weight: 600;
   height: 50px;

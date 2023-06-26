@@ -43,9 +43,13 @@ const companies = ref([
     website: "https://infinity-mobile.io/",
 
     jobDesc: [
-      "Writting clean code",
-      "developing reusable components",
-      "code testing",
+      "writting clean and reusable code for the company's main platform (saylcoud)",
+      "implementing design updates and functionalities of the companies website",
+      "building reusable components using vuejs",
+      "manupilating API data retrieved from the company's backend as well as from third party APIs",
+      "building KPIs & analytics for the company's localization platform -mainly uses Google translation API",
+      "revewing PRs on Jira and making minor optimaizations when needed ",
+      "refactoring legacy codebase",
     ],
     techs: ["Javascript,vueJs,SCSS,NodeJs,Strapi,MySql,MongoDB"],
   },
@@ -66,10 +70,11 @@ const companies = ref([
     website: "https://becode.org/",
 
     jobDesc: [
-      "Writting clean code",
-      "developing reusable components",
-      "code reviewing",
-      "code testing",
+      "built and deployed various solo as well as group projects on Heroku,netlify & Github pages",
+      "presented more than 7 tech talks on various tech topics",
+      "participated on hackathons",
+      "built a fullstack e-comerce website using react,nodejs,express and mongose",
+      "experimented various programing languages and framworks including TS,PHP,C#",
     ],
     techs: ["Javascript,React,SCSS,NodeJs,MongoDB"],
   },
@@ -176,6 +181,11 @@ onMounted(() => {
   padding: 0.2rem;
   cursor: pointer;
 }
+.work-details-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.36rem;
+}
 
 .work-details-header h3 a {
   color: var(--clr-golden);
@@ -183,6 +193,7 @@ onMounted(() => {
 
 .work-details {
   padding: 0.5rem;
+  padding-top: 0;
 }
 
 .-is-active {
@@ -198,6 +209,7 @@ onMounted(() => {
 
 .tasks-container {
   padding: 0.5rem;
+  padding-top: 1.5rem;
   margin-left: 0.2rem;
   margin-top: 0.4rem;
 }
@@ -208,8 +220,9 @@ onMounted(() => {
 
 .task::before {
   content: "▹";
-  margin-right: 4px;
+  margin-right: 0.65rem;
   color: var(--clr-golden);
+  font-weight: 800;
 }
 
 li {
