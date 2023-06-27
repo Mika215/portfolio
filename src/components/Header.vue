@@ -26,6 +26,11 @@ const menuItems = ref([
     href: "#about",
   },
   {
+    label: "Skills",
+    id: "skills",
+    href: "#skills",
+  },
+  {
     label: "Projects",
     id: "projects",
     href: "#projects",
