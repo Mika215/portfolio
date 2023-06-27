@@ -5,6 +5,8 @@ import {intersecObserver} from "./helpers/index.js";
 
 import Header from "./components/Header.vue";
 import Landing from "./components/Landing.vue";
+import Skill from "./components/Skill.vue";
+
 // import SearchBar from "./components/SearchBar.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
@@ -32,6 +34,11 @@ const mobileMenuItems = ref([
     href: "#about",
   },
   {
+    label: "Skills",
+    id: "skills",
+    href: "#skills",
+  },
+  {
     label: "Projects",
     id: "projects",
     href: "#projects",
@@ -53,8 +60,12 @@ const projects = ref([
     title: "DallolMart",
     type: "FullStack",
     techs: ["React", "NodeJs", "Mongoose", "Strip"],
+    links: {
+      github: "https://github.com/Mika215/dallolmart",
+      open: "#",
+    },
     hostedOn: "Netlify",
-    description: "Fullstack online commerce",
+    description: "Fullstack e-commerce website",
     id: 1,
     img: `${Ecommerce}`,
   },
@@ -63,6 +74,10 @@ const projects = ref([
     type: "FullStack",
     techs: ["Vue2", "Sass", "Mongoose", "NodeJs"],
     hostedOn: "Heroku",
+    links: {
+      github: "https://github.com/Mika215/BeHelp",
+      open: "https://behelp.netlify.app/",
+    },
     description: "Refugees & volunteers in BE",
     id: 2,
     img: `${Behelp2}`,
@@ -74,6 +89,10 @@ const projects = ref([
     type: "Frontend",
     techs: ["React", "SCSS", "APIs"],
     hostedOn: "Netlify",
+    links: {
+      github: "https://github.com/Mika215/weather-app-mika",
+      open: "https://weather-app-mika.netlify.app/",
+    },
     description: "Weather App",
     id: 3,
     img: `${Axumite}`,
@@ -83,6 +102,10 @@ const projects = ref([
     type: "Frontend",
     techs: ["HTML5", "Sass", "vanilaJS"],
     hostedOn: "Hostinger",
+    links: {
+      github: "https://github.com/Mika215/dj-project",
+      open: "https://mrsociety404.github.io/dj-project/",
+    },
     description: "DJ's new releases and events.",
     id: 4,
     img: `${DjProject}`,
@@ -135,10 +158,14 @@ onMounted(() => {
       </div>
     </div>
     <Landing ref="styledSection" />
+    <section id="skills" class="-has-obsereved">
+      <h2 class="skills-title">Skills</h2>
+      <p>Some of my skills and techs</p>
+      <Skill />
+    </section>
     <section id="projects" class="-has-obsereved">
       <h2 class="projects-title">Project</h2>
       <p>Here are some of the projects i have developed</p>
-      <SearchBar />
       <template class="projects-grid">
         <Project
           v-for="project in projects"
@@ -148,9 +175,11 @@ onMounted(() => {
           :img="project.img"
           :techs="project.techs"
           :href="project.href"
+          :links="project.links"
         />
       </template>
     </section>
+
     <Resume class="-has-obsereved" />
     <Contact class="-has-obsereved" />
   </main>
@@ -247,6 +276,22 @@ onMounted(() => {
   font-family: Raleway;
 }
 #projects p {
+  font-family: Raleway;
+}
+
+#skills {
+  margin: 1rem;
+  margin-top: 1.5rem;
+
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+#skills .skills-title {
+  font-size: 1.8rem;
+  font-family: Raleway;
+}
+#skills p {
   font-family: Raleway;
 }
 

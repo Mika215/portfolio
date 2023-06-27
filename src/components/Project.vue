@@ -1,5 +1,7 @@
 <script setup>
-import GithubIcon from "../assets/images/iconmonstr-github-1.svg";
+// import GithubIcon from "../assets/images/iconmonstr-github-1.svg";
+import GithubIcon from "../assets/icons/inverted-github.png";
+import OpenIcon from "../assets/icons/inverted-open.png";
 
 const props = defineProps({
   title: {
@@ -16,6 +18,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  links: {
+    type: Object,
+    default: () => {},
+  },
   href: {
     type: String,
   },
@@ -26,8 +32,12 @@ const props = defineProps({
   <div class="project-box -has-obsereved">
     <header>
       <div class="project-top">
+        <a :href="links.github">
         <img :src="GithubIcon" alt="" />
-        <img :src="GithubIcon" alt="" />
+        </a>
+        <a :href="links.open">
+        <img :src="OpenIcon" alt="" />
+        </a>
       </div>
       <h3 class="project-title">{{ title }}</h3>
       <p class="project-description">{{ description }}</p>
@@ -59,6 +69,7 @@ const props = defineProps({
 
 .project-techs li {
   font-family: Raleway;
+  opacity: 0.5;
 
   list-style: none;
   /* background-color: gray; */
@@ -95,6 +106,15 @@ const props = defineProps({
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.95rem;
+}
+.project-top img {
+  opacity: 0.5;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.project-top a {
+  display: inline-block;
 }
 
 .project-title {
