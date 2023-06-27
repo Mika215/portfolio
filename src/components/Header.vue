@@ -1,18 +1,10 @@
 <script setup>
-import {ref, onMounted} from "vue";
+import {ref} from "vue";
 const emit = defineEmits(["toggle-menu"]);
-
-// const isActive = ref(false);
-// const isHidden = ref(true);
 
 const toggleMobMenu = () => {
   emit("toggle-menu");
-  console.log(`isActive:${props.isActive}, isHidden:${props.isHidden}`);
-
-  // isActive.value = !isActive.value;
-  // isHidden.value = !isHidden.value;
-
-  // console.log(isActive.value);
+  // console.log(`isActive:${props.isActive}, isHidden:${props.isHidden}`);
 };
 
 const props = defineProps({
@@ -46,9 +38,6 @@ const menuItems = ref([
     href: "#contact",
   },
 ]);
-onMounted(() => {
-  // console.log(`isActive:${props.isActive}, isHidden:${props.isHidden}`);
-});
 </script>
 
 <template>
@@ -72,6 +61,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;600;700&display=swap");
+
 /* .wrapper {
   display: flex;
   align-items: center;
@@ -84,6 +75,7 @@ onMounted(() => {
   font-weight: 800;
   cursor: pointer;
   margin-left: 0.5rem;
+  font-family: "Raleway";
 }
 .hamburger {
   width: 46px;
@@ -172,6 +164,7 @@ onMounted(() => {
 .nav-item {
   list-style: none;
   display: flex;
+  font-family: "Raleway";
 }
 
 .nav-item a {

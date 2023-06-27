@@ -98,12 +98,12 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
 .heading-lg {
   font-family: Raleway;
 
-  /* font-size: clamp(30px, 6vw, 70px); */
+  font-size: clamp(30px, 6vw, 70px);
   /* clamp(40px, 8vw, 80px); */
 }
 .primary {
   font-weight: 800;
-  font-size: 3.5rem;
+  /* font-size: 3.5rem; */
 }
 
 .secondary {
@@ -112,9 +112,9 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
 
   font-weight: 600;
   margin: 0;
-  font-size: 2rem;
+  /* font-size: 2rem; */
 
-  /* font-size: clamp(20px, 4vw, 30px); */
+  font-size: clamp(20px, 4vw, 30px);
 }
 
 .cv-btn {

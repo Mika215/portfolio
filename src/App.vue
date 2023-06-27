@@ -89,6 +89,11 @@ const projects = ref([
     href: "https://mrsociety404.github.io/dj-project/index.html",
   },
 ]);
+
+const onMobMenuClick = (target) => {
+  handleMenu();
+};
+
 const handleMenu = (event) => {
   isActiveMobMenu.value = !isActiveMobMenu.value;
   isHiddenMobMenu.value = !isHiddenMobMenu.value;
@@ -131,7 +136,8 @@ onMounted(() => {
           v-for="item in mobileMenuItems"
           class="menu-item"
           :key="item.id"
-          :href="item.id"
+          :href="item.href"
+          @click="onMobMenuClick(item.href)"
           >{{ item.label }}</a
         >
       </div>
