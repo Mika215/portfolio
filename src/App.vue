@@ -70,17 +70,17 @@ const projects = ref([
     href: "https://behelp.netlify.app/",
   },
   {
-    title: "Axumite",
-    type: "FullStack",
-    techs: ["React", "Laravel8", "MongoDB"],
-    hostedOn: "Hostinger",
-    description: "Knowledge sharing platform",
+    title: "Weather App",
+    type: "Frontend",
+    techs: ["React", "SCSS", "APIs"],
+    hostedOn: "Netlify",
+    description: "Weather App",
     id: 3,
     img: `${Axumite}`,
   },
   {
     title: "Project DJ - Mr Oizo",
-    type: "FullStack",
+    type: "Frontend",
     techs: ["HTML5", "Sass", "vanilaJS"],
     hostedOn: "Hostinger",
     description: "DJ's new releases and events.",
@@ -244,7 +244,11 @@ onMounted(() => {
 }
 
 #projects .projects-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-family: Raleway;
+}
+#projects p {
+  font-family: Raleway;
 }
 
 /* .projects-title::after {

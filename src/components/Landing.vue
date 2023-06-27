@@ -48,6 +48,8 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;600;700&display=swap");
+
 .landing {
   display: flex;
   flex-direction: column;
@@ -57,7 +59,9 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
   justify-content: center;
 }
 .spartan {
-  font-family: spartan;
+  font-family: Raleway;
+
+  /* font-family: spartan; */
   color: #595a5a;
 }
 .spartan + .spartan {
@@ -92,17 +96,25 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
   text-decoration: none;
 }
 .heading-lg {
-  font-size: clamp(30px, 6vw, 70px);
+  font-family: Raleway;
+
+  /* font-size: clamp(30px, 6vw, 70px); */
   /* clamp(40px, 8vw, 80px); */
 }
 .primary {
+  font-weight: 800;
+  font-size: 3.5rem;
 }
 
 .secondary {
   color: #595a5a;
-  font-weight: 800;
+  /* color: #a799b7; */
+
+  font-weight: 600;
   margin: 0;
-  font-size: clamp(20px, 4vw, 30px);
+  font-size: 2rem;
+
+  /* font-size: clamp(20px, 4vw, 30px); */
 }
 
 .cv-btn {
@@ -111,14 +123,16 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
   border-radius: 12px;
   background-color: var(--clr-armyGreen);
   color: white;
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.5rem;
   border: none;
+  font-family: "Raleway";
 }
 .landing-content p {
   letter-spacing: 1;
   line-height: 1.5;
-  text-align: justify;
+  /* text-align: justify; */
+  text-align: start;
 }
 .landing-content p + p {
   margin-top: 1rem;

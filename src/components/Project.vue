@@ -58,6 +58,8 @@ const props = defineProps({
 }
 
 .project-techs li {
+  font-family: Raleway;
+
   list-style: none;
   /* background-color: gray; */
   border-radius: 5%;
@@ -96,9 +98,12 @@ const props = defineProps({
 }
 
 .project-title {
+  font-family: Raleway;
 }
 
 .project-description {
+  font-family: Raleway;
+
   color: #dbdbdb;
   /* color: var(--clr-lightDark); */
 }

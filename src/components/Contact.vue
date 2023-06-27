@@ -1,6 +1,6 @@
 <script setup>
 import {ref, computed} from "vue";
-import LinkedinIcon from "../assets/images/linkedin-icon.svg";
+import LinkedinIcon from "../assets/images/linkedin-colored.svg";
 import GithubIcon from "../assets/images/github-icon.svg";
 import DiscordIcon from "../assets/images/discord-icon.svg";
 import StackOverflowIcon from "../assets/images/stackoverflow-icon.svg";
@@ -44,7 +44,11 @@ const socialMedias = ref([
           >
             <a :href="social.href" target="_blank">
               <span>
-                <img :src="social.logo" :alt="social.name" />
+                <img
+                  :src="social.logo"
+                  :title="social.name"
+                  :alt="social.name"
+                />
               </span>
             </a>
           </li>
@@ -105,7 +109,7 @@ const socialMedias = ref([
           ></textarea>
         </div>
         <div class="section-contact__form-btn-container">
-          <button>Send</button>
+          <button class="contact-btn">Send</button>
         </div>
       </form>
     </div>
@@ -128,7 +132,8 @@ const socialMedias = ref([
 }
 
 .section-contact__header h1 {
-  font-size: 2rem;
+  font-size: 1.9rem;
+  font-family: Raleway;
 }
 
 .section-contact__socials-wrapper {
@@ -170,6 +175,7 @@ const socialMedias = ref([
 
 .section-contact__body-txt {
   text-align: justify;
+  font-family: Raleway;
 }
 
 .section-contact__form {
@@ -202,6 +208,11 @@ const socialMedias = ref([
   flex-direction: column;
   gap: 0.5rem;
 }
+.section-contact__form-subform-wrapper label,
+textarea,
+input {
+  font-family: Raleway;
+}
 
 .section-contact__form-sender-message {
   display: flex;
@@ -212,12 +223,18 @@ const socialMedias = ref([
 .section-contact__form-sender-message textarea {
   padding: 10px 15px;
 }
+.section-contact__form-sender-message label,
+span,
+textarea {
+  font-family: Raleway;
+}
 
 .section-contact__form-btn-container {
   display: flex;
   justify-content: center;
 }
-.section-contact__form-btn-container button {
+/* .section-contact__form-btn-container button  */
+.contact-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,8 +244,9 @@ const socialMedias = ref([
   background-color: var(--clr-armyGreen);
   color: white;
   font-weight: 700;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 8.5rem;
   border: none;
+  font-family: Raleway;
 }
 
 /* .section-contact__header h1::after {
@@ -245,6 +263,9 @@ const socialMedias = ref([
 @media (min-width: 421px) {
   .section-contact__form-sender-info {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-btn {
+    padding: 0.7rem 2rem;
   }
 
   .section-contact__form-btn-container {

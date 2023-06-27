@@ -135,9 +135,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;600;700&display=swap");
+
 #experience {
   min-height: 100vh;
   /* border: 1px solid red; */
+
   width: auto;
   margin: 1rem;
   padding: 1rem;
@@ -146,6 +149,8 @@ onMounted(() => {
 
 .resume-title {
   position: relative;
+  font-family: Raleway;
+  font-weight: 800;
 }
 
 /* .resume-title::after {
@@ -161,12 +166,14 @@ onMounted(() => {
 } */
 
 .resume-content {
+  font-family: Raleway;
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   min-height: 50vh;
   width: auto;
+  font-family: Raleway;
 }
 
 .work-tabs {
@@ -180,6 +187,7 @@ onMounted(() => {
   margin: 0.2rem;
   padding: 0.2rem;
   cursor: pointer;
+  font-family: Raleway;
 }
 .work-details-header {
   display: flex;
@@ -187,8 +195,22 @@ onMounted(() => {
   gap: 0.36rem;
 }
 
+.work-details-header h3 {
+  font-family: Raleway;
+  font-weight: 700;
+}
 .work-details-header h3 a {
   color: var(--clr-golden);
+  font-family: Raleway;
+  font-weight: 400;
+}
+
+.work-details-header h3 a:hover {
+  color: #d1b000;
+}
+
+.work-details-header p {
+  font-family: Raleway;
 }
 
 .work-details {
@@ -215,6 +237,8 @@ onMounted(() => {
 }
 
 .task {
+  font-family: Raleway;
+
   /* border: 1px solid blue; */
 }
 
