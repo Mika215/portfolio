@@ -197,7 +197,7 @@ onMounted(() => {
   position: absolute;
   height: 100vh;
   width: 100%;
-  background-color: #112240;
+  background-color: var(--clr-armyGreen);
   opacity: 0.99;
   transition: 0.5s;
 }
