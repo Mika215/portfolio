@@ -5,11 +5,11 @@ import {intersecObserver} from "./helpers/index.js";
 
 import Header from "./components/Header.vue";
 import Landing from "./components/Landing.vue";
-import SearchBar from "./components/SearchBar.vue";
+// import SearchBar from "./components/SearchBar.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
 import Contact from "./components/Contact.vue";
-import Footer from "./components/Footer.vue";
+// import Footer from "./components/Footer.vue";
 
 import Ecommerce from "./assets/images/e-commerce.jpg";
 import Behelp from "./assets/images/behelp.png";
@@ -93,23 +93,15 @@ const projects = ref([
 const onMobMenuClick = (target) => {
   handleMenu();
 };
-
 const handleMenu = (event) => {
   isActiveMobMenu.value = !isActiveMobMenu.value;
   isHiddenMobMenu.value = !isHiddenMobMenu.value;
 };
 
-// const rootElement = document.documentElement;
-// var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
 const scrollToTop = () => {
-  // console.log(scrollTotal);
-
-  // console.log("scroll  detected!");
   window.scrollTo({top: 0, behaviour: "smooth"});
 };
 
-// document.addEventListener("scroll", scrollToTop);
-// document.addEventListner("scroll", scrollToTop);
 onMounted(() => {
   sections.value = document.querySelectorAll(".-has-obsereved");
   sections.value.forEach((section) => {
@@ -146,7 +138,7 @@ onMounted(() => {
     <section id="projects" class="-has-obsereved">
       <h2 class="projects-title">Project</h2>
       <p>Here are some of the projects i have developed</p>
-      <!-- <SearchBar /> -->
+      <SearchBar />
       <template class="projects-grid">
         <Project
           v-for="project in projects"
@@ -177,11 +169,11 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   border: none;
-  bottom: 30px;
+  bottom: 5px;
   right: 15px;
-  z-index: 99;
+  z-index: 98;
   color: black;
   font-weight: 600;
   height: 50px;
@@ -200,6 +192,7 @@ onMounted(() => {
   background-color: var(--clr-armyGreen);
   opacity: 0.99;
   transition: 0.5s;
+  z-index: 99;
 }
 
 .mobile-menu .is-hidden {
@@ -232,16 +225,16 @@ onMounted(() => {
   font-weight: 600;
 }
 
-.-has-obsereved {
+/* .-has-obsereved {
   transform: translateX(100px);
   opacity: 0;
   transition: 870ms;
-}
+} */
 
-.show {
+/* .show {
   transform: translateX(0);
   opacity: 1;
-}
+} */
 
 #projects {
   margin: 1rem;

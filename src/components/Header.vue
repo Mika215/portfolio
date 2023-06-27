@@ -1,5 +1,8 @@
 <script setup>
 import {ref} from "vue";
+// import mikacodesIcon from "../assets/images/mikacodes-logo.png";
+import mikacodesIcon from "../assets/images/mikacodes-logo.jpeg";
+
 const emit = defineEmits(["toggle-menu"]);
 
 const toggleMobMenu = () => {
@@ -42,7 +45,9 @@ const menuItems = ref([
 
 <template>
   <div class="nav">
-    <span class="logo"> Mikacodes </span>
+    <a href="#about" class="logo-container">
+      <img :src="mikacodesIcon" alt="mikacodes-logo" class="logo" />
+    </a>
     <div
       class="hamburger mobile"
       :class="{'is-active': isActive}"
@@ -69,13 +74,21 @@ const menuItems = ref([
   justify-content: space-between;
   padding-left: 12px;
 } */
-
+.logo-container {
+  display: inline-block;
+  width: 55px;
+  height: 48px;
+  margin-left: 1rem;
+  /* border: 1px solid red; */
+}
 .logo {
-  font-size: 1.25rem;
+  width: 100%;
+  height: 100%;
+  /* font-size: 1.25rem;
   font-weight: 800;
   cursor: pointer;
   margin-left: 0.5rem;
-  font-family: "Raleway";
+  font-family: "Raleway"; */
 }
 .hamburger {
   width: 46px;

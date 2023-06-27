@@ -1,5 +1,8 @@
 <script setup>
-import LandingIcon from "../assets/images/front-end-development.jpeg";
+// import LandingIcon from "../assets/images/front-end-development.jpeg";
+// import LandingIcon from "../assets/images/mikacodes-logo.jpeg";
+import LandingIcon from "../assets/images/mikacodes-logo.png";
+
 import Michael from "../assets/images/michael.jpeg";
 import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
 </script>
@@ -8,8 +11,8 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
   <section id="about" class="landing">
     <div class="landing-wrapper">
       <div class="landing-image">
-        <img :src="LandingIcon" alt="encryption-svg" />
-        <!-- <img :src="Michael" alt="encryption-svg" /> -->
+        <!-- <img :src="LandingIcon" alt="encryption-svg" /> -->
+        <img :src="Michael" alt="encryption-svg" />
       </div>
       <article class="landing-content">
         <h2 class="heading-lg primary">Michael Tesfay</h2>

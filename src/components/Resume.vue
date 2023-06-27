@@ -226,7 +226,7 @@ onMounted(() => {
   border-bottom: 2px solid var(--clr-golden);
   padding-bottom: 0.5rem;
   /* width: 100%; */
-  transition: 0.5s ease;
+  /* transition: 0.5s ease; */
 }
 
 .tasks-container {
