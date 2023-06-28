@@ -25,10 +25,8 @@ const sections = ref([]);
 const isActiveMobMenu = ref(false);
 const isHiddenMobMenu = ref(true);
 const isTopPage = ref(true);
-
-const handleScroll = (e) => {
-  window.scrollY === 0 ? (isTopPage.value = true) : (isTopPage.value = false);
-};
+const isScrollingDown = ref(false);
+const prevScrollLength = ref(window.pageYOffset);
 
 const mobileMenuItems = ref([
   {
@@ -116,6 +114,20 @@ const projects = ref([
   },
 ]);
 
+const handleScroll = (e) => {
+  // scroll-to-top state controller
+  window.scrollY === 0 ? (isTopPage.value = true) : (isTopPage.value = false);
+
+  // navBar state controller
+  let currentScrollLength = window.pageYOffset;
+
+  prevScrollLength.value > currentScrollLength
+    ? (isScrollingDown.value = false)
+    : (isScrollingDown.value = true);
+
+  prevScrollLength.value = currentScrollLength;
+};
+
 const onMobMenuClick = (target) => {
   handleMenu();
 };
@@ -144,6 +156,8 @@ onUnmounted(() => {
 
 <template>
   <Header
+    class="header-component"
+    :class="isScrollingDown && '-hide'"
     @toggle-menu="handleMenu"
     :isActive="isActiveMobMenu"
     :isHidden="isHiddenMobMenu"
@@ -155,8 +169,6 @@ onUnmounted(() => {
       :src="ArrowUp"
       @click="scrollToTop"
     />
-
-    <!-- <button class="scroll-to-top" @click="scrollToTop">Scroll Top</button> -->
     <div
       v-if="isActiveMobMenu"
       class="mobile-menu"
@@ -207,6 +219,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   position: relative;
+  /* //!check this and remove if effects on the header */
+  padding-top: 2rem;
 }
 
 .scroll-to-top {
@@ -227,13 +241,23 @@ onUnmounted(() => {
   box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
 }
 
+.header-component {
+  transition: 0.2s ease-in-out;
+}
+
+.-hide {
+  top: -50px;
+}
 .-show {
   display: flex;
 }
 
 .mobile-menu {
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
+
   height: 100vh;
+  top: 48px;
   width: 100%;
   background-color: var(--clr-armyGreen);
   opacity: 0.99;

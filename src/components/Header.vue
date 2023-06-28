@@ -153,17 +153,16 @@ const menuItems = ref([
 
 .nav {
   display: flex;
-  position: relative;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+
   justify-content: space-between;
   align-items: center;
   background: var(--clr-armyGreen);
   color: white;
-  /* padding-left: 0.75rem;
-  padding-right: 0.2rem; */
-  /* marging:0 3rem; */
   min-height: 50px;
   width: 100%;
-  /* height:100vh; */
 }
 
 .hamburger.mobile {
@@ -194,7 +193,6 @@ const menuItems = ref([
 }
 
 .nav-item a:hover {
-  /* background-color: white; */
   color: var(--clr-green);
   font-weight: 600;
 }

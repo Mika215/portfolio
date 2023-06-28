@@ -206,7 +206,8 @@ onMounted(() => {
 }
 
 .work-details-header h3 a:hover {
-  color: #d1b000;
+  font-weight: 700;
+  color: gray;
 }
 
 .work-details-header p {
