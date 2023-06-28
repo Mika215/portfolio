@@ -1,31 +1,34 @@
 <script setup>
-import {ref, onMounted} from "vue";
+import {ref, onMounted, onUnmounted} from "vue";
 import {RouterLink, RouterView} from "vue-router";
 import {intersecObserver} from "./helpers/index.js";
 
 import Header from "./components/Header.vue";
 import Landing from "./components/Landing.vue";
 import Skill from "./components/Skill.vue";
-
-// import SearchBar from "./components/SearchBar.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
 import Contact from "./components/Contact.vue";
 // import Footer from "./components/Footer.vue";
 
-import Ecommerce from "./assets/images/e-commerce.jpg";
-import Behelp from "./assets/images/behelp.png";
-import Behelp2 from "./assets/images/behelp-2.png";
+import ArrowUp from "./assets/images/arrow-up.png";
+import Ecommerce from "./assets/images/ecommerce-latest.png";
 
-import RoomBooking from "./assets/images/room-booking.webp";
-import Axumite from "./assets/images/axumite.webp";
-import Gmail from "./assets/images/gmail.png";
+import Behelp from "./assets/images/behelp-small.png";
+import Behelp2 from "./assets/images/behelp-small.png";
+
+import Weather from "./assets/images/weather.png";
 import DjProject from "./assets/images/dj-project.png";
 
 const styledSection = ref(null);
 const sections = ref([]);
 const isActiveMobMenu = ref(false);
 const isHiddenMobMenu = ref(true);
+const isTopPage = ref(true);
+
+const handleScroll = (e) => {
+  window.scrollY === 0 ? (isTopPage.value = true) : (isTopPage.value = false);
+};
 
 const mobileMenuItems = ref([
   {
@@ -65,7 +68,7 @@ const projects = ref([
       open: "#",
     },
     hostedOn: "Netlify",
-    description: "Fullstack e-commerce website",
+    description: "Fullstack e-commerce",
     id: 1,
     img: `${Ecommerce}`,
   },
@@ -95,7 +98,7 @@ const projects = ref([
     },
     description: "Weather App",
     id: 3,
-    img: `${Axumite}`,
+    img: `${Weather}`,
   },
   {
     title: "Project DJ - Mr Oizo",
@@ -126,10 +129,16 @@ const scrollToTop = () => {
 };
 
 onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+
   sections.value = document.querySelectorAll(".-has-obsereved");
   sections.value.forEach((section) => {
     intersecObserver.observe(section);
   });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
@@ -140,7 +149,14 @@ onMounted(() => {
     :isHidden="isHiddenMobMenu"
   />
   <main class="wrapper">
-    <button class="scrol-to-top" @click="scrollToTop">Scroll Top</button>
+    <img
+      class="scroll-to-top"
+      :class="!isTopPage && '-show'"
+      :src="ArrowUp"
+      @click="scrollToTop"
+    />
+
+    <!-- <button class="scroll-to-top" @click="scrollToTop">Scroll Top</button> -->
     <div
       v-if="isActiveMobMenu"
       class="mobile-menu"
@@ -165,7 +181,7 @@ onMounted(() => {
     </section>
     <section id="projects" class="-has-obsereved">
       <h2 class="projects-title">Project</h2>
-      <p>Here are some of the projects i have developed</p>
+      <p>Here are some of the projects I have developed</p>
       <template class="projects-grid">
         <Project
           v-for="project in projects"
@@ -193,8 +209,8 @@ onMounted(() => {
   position: relative;
 }
 
-.scrol-to-top {
-  display: flex;
+.scroll-to-top {
+  display: none;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -203,17 +219,18 @@ onMounted(() => {
   bottom: 5px;
   right: 15px;
   z-index: 98;
-  color: black;
-  font-weight: 600;
-  height: 50px;
-  width: 50px;
-  padding: 1.7rem 1.7rem;
-  background-color: var(--clr-golden);
+  height: 40px;
+  width: 40px;
   cursor: pointer;
   -webkit-box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
   -moz-box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
   box-shadow: 9px -1px 24px -9px rgba(0, 0, 0, 0.41);
 }
+
+.-show {
+  display: flex;
+}
+
 .mobile-menu {
   position: absolute;
   height: 100vh;

@@ -33,10 +33,10 @@ const props = defineProps({
     <header>
       <div class="project-top">
         <a :href="links.github">
-        <img :src="GithubIcon" alt="" />
+          <img :src="GithubIcon" alt="" />
         </a>
         <a :href="links.open">
-        <img :src="OpenIcon" alt="" />
+          <img :src="OpenIcon" alt="" />
         </a>
       </div>
       <h3 class="project-title">{{ title }}</h3>
@@ -115,6 +115,7 @@ const props = defineProps({
 }
 .project-top a {
   display: inline-block;
+  text-decoration: none;
 }
 
 .project-title {
@@ -123,8 +124,8 @@ const props = defineProps({
 
 .project-description {
   font-family: Raleway;
-
   color: #dbdbdb;
+  font-size: 0.9rem;
   /* color: var(--clr-lightDark); */
 }
 

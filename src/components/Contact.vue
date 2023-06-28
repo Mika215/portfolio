@@ -59,7 +59,7 @@ const socialMedias = ref([
       <div class="section-contact__body-txt">
         Please feel free to get in touch anytime, whether for work inquiries or
         to just say hello! I am currently looking for junior developer job
-        ofers, and always excited to hear for your interesting proposals.
+        ofers, and always excited to hear your interesting proposals.
       </div>
       <form :action="Form_Url" class="section-contact__form" method="POST">
         <div class="section-contact__form-sender-info">

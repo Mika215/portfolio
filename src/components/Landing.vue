@@ -20,12 +20,12 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
         <p class="spartan">
           I am a junior web developer specializing on MongoDB,
           Express,VueJs,React and NodeJS. I took a bold decision to make a
-          carrier shift from a media and communications professional
-          background(in which i have worked for about a decade) in persuit of a
-          powerful tool - Web Development. <br />In addition to my technical
-          skills, I also possess strong soft skills such as communication and
-          teamwork. These skills enable me to work effectively with others and
-          deliver projects that meet client requirements.
+          carrier shift from a media and communications professional background
+          (in which I have worked for about a decade) in persuit of a powerful
+          tool - Web Development. <br />In addition to my technical skills, I
+          also possess strong soft skills such as communication and teamwork.
+          These skills enable me to work effectively with others and deliver
+          projects that meet client requirements.
         </p>
         <p class="spartan">
           When I'm not working on coding projects, I enjoy indulging in my
@@ -37,7 +37,7 @@ import PDFURL from "../assets/files/michael-tesfay-frontend-dev-cv-latest.pdf";
           individual who takes great pride in my work. I'm always looking for
           ways to improve my skills and knowledge to stay up-to-date with the
           latest web development trends. <br />I strongly believe that webdev is
-          all about problem solving and i am determined to persist in the
+          all about problem solving and I am determined to persist in the
           adventure of solving real world problems which abundantly exist all
           over my surrounding.
         </p>

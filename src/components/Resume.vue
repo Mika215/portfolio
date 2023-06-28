@@ -87,7 +87,7 @@ onMounted(() => {
 
 <template>
   <section id="experience">
-    <h2 class="resume-title">Where i have worked</h2>
+    <h2 class="resume-title">Where I have worked</h2>
     <div class="resume-content">
       <div class="work-tabs">
         <ul v-for="company in companies" :key="company.id">
