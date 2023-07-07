@@ -9,12 +9,9 @@ import Skill from "./components/Skill.vue";
 import Project from "./components/Project.vue";
 import Resume from "./components/Resume.vue";
 import Contact from "./components/Contact.vue";
-// import Footer from "./components/Footer.vue";
 
 import ArrowUp from "./assets/images/arrow-up.png";
 import Ecommerce from "./assets/images/ecommerce-latest.png";
-
-import Behelp from "./assets/images/behelp-small.png";
 import Behelp2 from "./assets/images/behelp-small.png";
 
 // import Weather from "./assets/images/weather.png";
@@ -214,7 +211,6 @@ onUnmounted(() => {
     <Resume class="-has-obsereved" />
     <Contact class="-has-obsereved" />
   </main>
-  <!-- <Footer /> -->
 </template>
 
 <style scoped>
@@ -222,7 +218,6 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* //!check this and remove if effects on the header */
   padding-top: 2rem;
 }
 
@@ -256,7 +251,6 @@ onUnmounted(() => {
 }
 
 .mobile-menu {
-  /* position: absolute; */
   position: fixed;
 
   height: 100vh;
