@@ -17,7 +17,9 @@ import Ecommerce from "./assets/images/ecommerce-latest.png";
 import Behelp from "./assets/images/behelp-small.png";
 import Behelp2 from "./assets/images/behelp-small.png";
 
-import Weather from "./assets/images/weather.png";
+// import Weather from "./assets/images/weather.png";
+import Weather from "./assets/images/weather-new.png";
+
 import DjProject from "./assets/images/dj-project.png";
 
 const styledSection = ref(null);
@@ -97,12 +99,13 @@ const projects = ref([
     description: "Weather App",
     id: 3,
     img: `${Weather}`,
+    href: "https://weather-app-mikacodes.netlify.app/",
   },
   {
     title: "Project DJ - Mr Oizo",
     type: "Frontend",
     techs: ["HTML5", "Sass", "vanilaJS"],
-    hostedOn: "Hostinger",
+    hostedOn: "Github pages",
     links: {
       github: "https://github.com/Mika215/dj-project",
       open: "https://mrsociety404.github.io/dj-project/",

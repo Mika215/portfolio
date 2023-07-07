@@ -1,7 +1,8 @@
 <script setup>
 import {ref} from "vue";
 // import mikacodesIcon from "../assets/images/mikacodes-logo.png";
-import mikacodesIcon from "../assets/images/mikacodes-logo.jpeg";
+// import mikacodesIcon from "../assets/images/mikacodes-logo.jpeg";
+import mikacodesIcon from "../assets/images/M.png";
 
 const emit = defineEmits(["toggle-menu"]);
 
@@ -87,8 +88,8 @@ const menuItems = ref([
   /* border: 1px solid red; */
 }
 .logo {
-  width: 100%;
-  height: 100%;
+  width: 105%;
+  height: 120%;
   /* font-size: 1.25rem;
   font-weight: 800;
   cursor: pointer;

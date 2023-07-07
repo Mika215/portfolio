@@ -32,10 +32,10 @@ const props = defineProps({
   <div class="project-box -has-obsereved">
     <header>
       <div class="project-top">
-        <a :href="links.github">
+        <a :href="links.github" target="_blank">
           <img :src="GithubIcon" alt="" />
         </a>
-        <a :href="links.open">
+        <a :href="links.open" target="_blank">
           <img :src="OpenIcon" alt="" />
         </a>
       </div>
